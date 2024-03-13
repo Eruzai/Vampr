@@ -66,7 +66,6 @@ class Vampire {
       return thisVampireParent.closestCommonAncestor(vampire);
     }
   }
-};
+}
 
 module.exports = Vampire;
-
