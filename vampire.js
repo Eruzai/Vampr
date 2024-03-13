@@ -16,7 +16,7 @@ class Vampire {
 
   // Returns the total number of vampires created by that vampire
   get numberOfOffspring() {
-  
+    return this.offspring.length;
   }
 
   // Returns the number of vampires away from the original vampire this vampire is
