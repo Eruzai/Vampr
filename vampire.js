@@ -48,9 +48,25 @@ class Vampire {
   // * when comparing Ansel and Sarah, Ansel is the closest common anscestor.
   // * when comparing Ansel and Andrew, Ansel is the closest common anscestor.
   closestCommonAncestor(vampire) {
+    let thisVampire = this;
+    console.log(thisVampire.name, vampire.name);
 
+    if (thisVampire === vampire) {
+      return thisVampire;
+    }
+
+    if (thisVampire.isMoreSeniorThan(vampire)) {
+      const vampireParent = vampire.creator;
+      return thisVampire.closestCommonAncestor(vampireParent);
+    } else if (vampire.isMoreSeniorThan(thisVampire)) {
+      const thisVampireParent = thisVampire.creator;
+      return thisVampireParent.closestCommonAncestor(vampire);
+    } else {
+      const thisVampireParent = thisVampire.creator;
+      return thisVampireParent.closestCommonAncestor(vampire);
+    }
   }
-}
+};
 
 module.exports = Vampire;
 
